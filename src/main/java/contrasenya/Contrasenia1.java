@@ -100,7 +100,23 @@ public class Contrasenia1 {
         
         //COMPROBAMOS LAS CONDICIONES 
         
-        
+          if ((num1 + num4) % 2 != 0) {
+            if ((num2 * num3) % 2 == 0) {
+            } else {
+                do {
+                    num2 = generarNum2(num1, num2);
+                    System.out.println("-------------------");
+                    num3 = generarNum3(num1, num2, num3);
+                } while ((num2 * num3) % 2 == 0);
+            }
+        } else {
+            do {
+                num1 = numAleatorio(0, 9);
+                num4 = generarNum4(num1, num2, num3, num4);
+            } while ((num1 + num4) % 2 != 0);
+        }
+
+        System.out.println("La contraseña final es: " + num1 + "" + num2 + "" + num3 + "" + num4 + "" + letra);
         
         
     }
