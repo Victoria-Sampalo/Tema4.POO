@@ -20,14 +20,14 @@ public class Vehiculo {
     double tarifa;
     boolean disponible;
     //MÉTODO CONSTRUCTOR DE CLASE VEHICULO
-    public Vehiculo(String matricula, String marca, String modelo, String color, double tarifa) {
+    public Vehiculo(String matricula, String marca, String modelo, String color, double tarifa, boolean disponible) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.tarifa = tarifa;
-        this.disponible = false;
-    }
+        this.disponible = disponible;
+    } 
     
     //LOS MÉTODOS GET Y SET DE LA CLASE VEHICULO 
     //GET OBTENER. SET CAMBIAR
