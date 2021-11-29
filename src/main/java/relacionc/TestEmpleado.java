@@ -25,7 +25,9 @@ public class TestEmpleado {
         Double numIrpf;
         boolean casado;
         int numHijos;
-
+        
+        //Instancio el nuevoobjeto creado, empleado1
+        
         Empleado empleado1 = new Empleado("Victoria", "Sampalo", "124-h", 50.0, 1.0, 20.0, true, 0);
         //preci.horas extras - num horas- %irpf - casada - numhijos
 
@@ -56,12 +58,15 @@ public class TestEmpleado {
         System.out.println("Porcentaje de IRPF");
         numIrpf = sc.nextDouble();
         empleado1.setNumIrpf(numIrpf);
-        //Limpio el buffer
+        
+        //control de la booleana casado,
+        //Limpio el buffer, porque paso de letra a numero
         sc.nextLine();
+        //inicializo a 0.
         String isCasado = "";
 
         do {
-            System.out.println("¿Estás casado?. Introduce c o s");
+            System.out.println("¿Estás casado?. Introduce 'c' (casado o 's' de soltero");
 
             isCasado = sc.nextLine();
             if (isCasado.equalsIgnoreCase("c")) {
@@ -71,9 +76,9 @@ public class TestEmpleado {
                 casado = false;
                 empleado1.setCasado(casado);
             } else {
-                System.out.println("Introduzca un valor válido");
+                System.out.println("Introduzca un valor válido, 'S' de soltero o 'C' de casado");
             }
-
+            //si es distinto de  c o s
         } while (!(isCasado.equalsIgnoreCase("c") || isCasado.equalsIgnoreCase("s")));
 
         System.out.println("Número de hijos");
@@ -92,19 +97,11 @@ public class TestEmpleado {
         int numHijos;
          */
         //PRUEBO METODO GET Y SET
-        System.out.println("Nombre del empleado " + empleado1.getNombre()
-                + "Apellido " + empleado1.getApellido());
+        System.out.println("Nombre del empleado {" + empleado1.getNombre()
+                + " } y su apellido es { " + empleado1.getApellido() + " }");
 
 
-        /*
-        
-        //PRUEBO SET Y GET
-        System.out.println("La canción es " + song1.getTitulo()
-                + " y su autor " + song1.getAutor());
-
-        //PRUEBO EL MÉTODO STRING
-        System.out.println("La canción es " + song1.toString());
-         */
+       
     }
 
 }
