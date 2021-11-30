@@ -106,7 +106,7 @@ public class EmpleadoEj13 {
     }
 
     //MÉTODO CALCULO HORAS EXTRAS
-    public double calculoHorasMes(double precioHoraExtra, double horasExtraMes) {
+    public double calculoHorasMes() {
         double cantidadHorasExtra = precioHoraExtra * horasExtraMes;
 
         return cantidadHorasExtra;
@@ -114,18 +114,29 @@ public class EmpleadoEj13 {
     }
 
     //MÉTODO SUELDO BRUTO
-    public double calculoSueldoBruto(double sueldoBase, double cantidadHorasExtras) {
-        double cantidadSueldoBruto = sueldoBase + cantidadHorasExtras;
+    public double calculoSueldoBruto() {
+        double cantidadSueldoBruto = sueldoBase + calculoHorasMes();
 
         return cantidadSueldoBruto;
     }
 
-    //MÉTODO CALCULO RETENCIONES
-    public double calculoIrpf(double numIrpf) {
-        EmpleadoEj13 emp = new EmpleadoEj13("Victoria", "Sampalo", "124-h", 1000.0, 50.0, 1.0, 20.0, 0, true);
-        double cantidadIrpf = emp.setNumIrpf;
-        
-        
+    //MÉTODO CALCULO RETENCIONES, POR DEFECTO
+    public double calculoIrpf() {
+        double numIrpf = this.numIrpf;
+        //resta 1 punto por cada hijo
+        if (this.numHijos != 0) {
+            numIrpf -= this.numHijos;
+        }
+        //resta 2 puntos si está casado. casado= true
+        if (this.casado) {
+            numIrpf -= 2;
+        }
+        //no puede ser irpf negativo, si sale negativo poner a cero
+        if (this.numIrpf < 0) {
+            numIrpf = 0;
+        }
+
+        double cantidadIrpf = (numIrpf * calculoSueldoBruto()) / 100;
         /*
         los tiros van a ir por:
         if (casado){
@@ -135,53 +146,36 @@ public class EmpleadoEj13 {
         else if (!casado){calculoIrpf = saldoBruto * (numIrpf /100}
         
         else (numHijos!=0){ for (int i; i<=numHijos; i++)}
-        */
-        
-        
-        
+         */
         return cantidadIrpf;
 
     }
 
     //MÉTODO SUELDO NETO
+    public double calculoSueldoNeto() {
+        double cantidadSueldoNeto = calculoSueldoBruto() - calculoIrpf();
+        return cantidadSueldoNeto;
+    }
+
     //MÉTODO escribirBasicInfo():  (EJERCICIO 12) por scanner
+    public void escribirBasicInfo() {
+        EmpleadoEj13 empleado1 = new EmpleadoEj13("Victoria", "Sampalo", "124-h", 1000.0, 50.0, 1.0, 20.0, 0, true);
+    }
+
     //MÉTODO escribirAllInfo()
     public void escribirAllInfo() {
-        Scanner sc = new Scanner(System.in);
+        String cantidadIrpf = null;
+        //NO SE PUEDE TENER SCANNER EN EL CONSTRUCTOR
         //llamo al método de clase empleado
-        EmpleadoEj13 empleado1 = new EmpleadoEj13("Victoria", "Sampalo", "124-h", 1000.0, 50.0, 1.0, 20.0, 0, true);
-
-        //pido datos por teclado
-        //NOMBRE
-        System.out.println("Introduzca su nombre");
-        nombre = sc.nextLine();
-        empleado1.setNombre(nombre);
-        //APELLIDO
-        System.out.println("Introduzca el apellido");
-        apellido = sc.nextLine();
-        empleado1.setApellido(apellido);
-        //NIF
-        System.out.println("Introduzca el NIF");
-        nif = sc.nextLine();
-        empleado1.setNif(nif);
-        //SUELDO BASE
-        System.out.println("Introduzca sueldo base");
-        sueldoBase = sc.nextDouble();
-        empleado1.setSueldoBase(sueldoBase);
-        //PRECIO X HORA EXTRA
-        System.out.println("Precio por hora extra");
-        precioHoraExtra = sc.nextDouble();
-        empleado1.setPrecioHoraExtra(precioHoraExtra);
-        //HORAS EXTRAS AL MES
-        System.out.println("Número de horas extras");
-        horasExtraMes = sc.nextDouble();
-        empleado1.setHorasExtraMes(horasExtraMes);
-
-        //tipoIRPF
-        System.out.println("Introduzca el Porcentaje de IRPF");
-        numIrpf = sc.nextDouble();
-        empleado1.setNumIrpf(numIrpf);
-
+        System.out.println("Nombre: " + this.nombre +
+                "\nApellidos: " + this.apellido +
+                "\nNIF: " + this.nif +
+                "\nSueldo base: " + this.sueldoBase +
+                "\nComplemento horas extras: " + calculoIrpf() + 
+                "\nSueldo bruto: " + calculoSueldoBruto() +
+                "\nRetención de IRPF: " +  cantidadIrpf +
+                "\nSueldo neto: " + calculoSueldoNeto()
+         );
     }
 
     //MÉTODO TO STRING()

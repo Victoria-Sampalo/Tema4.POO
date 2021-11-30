@@ -9,16 +9,19 @@ package relacionc;
  */
 public class Empleado {
 
-    String nombre;
-    String apellido;
-    String nif;
-    Double precioHoraExtra;
-    Double numHoraExtra;
-    Double numIrpf;
-    boolean casado;
-    int numHijos;
-
-    //MÉTODO CONSTRUCTOR DE CLASE EMPLEADO
+   private String nombre;
+   private String apellido;
+   private String nif;
+   private Double precioHoraExtra;
+   private Double numHoraExtra;
+   private Double numIrpf;
+   private boolean casado;
+   private int numHijos;
+   
+   //constructor de clase empleado POR DEFECTO
+ public Empleado () {
+ }
+    //MÉTODO CONSTRUCTOR DE CLASE EMPLEADO, PARAMETRIZADO
     public Empleado(String nombre, String apellido, String nif, Double precioHoraExtra, Double numHoraExtra, Double numIrpf, boolean casado, int numHijos) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,6 +32,7 @@ public class Empleado {
         this.casado = casado;
         this.numHijos = numHijos;
     }
+    //HAY UNA TERCERA CLASE CON PARÁMETROS SERIA IGUAL PERO CON VALORES CONCRETOS
 
     //
     public String getNombre() {

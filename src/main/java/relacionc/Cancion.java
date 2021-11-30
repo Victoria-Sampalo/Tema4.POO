@@ -13,10 +13,20 @@ public class Cancion {
 
     public String titulo, autor;
 
+    //construcción por defecto. CADENA VACIA
+    public Cancion() {
+        this.titulo = "";
+        this.autor = "";
+    }
+    
+    //CONSTRUCTOR PARAMETRIZADO
     public Cancion(String titulo, String autor) {
         this.titulo = titulo;
         this.autor = autor;
     }
+    
+  
+    
 
     //GET para CONSULTAS
     public String getTitulo() {
@@ -35,15 +45,13 @@ public class Cancion {
     public void setAutor(String autor) {
         this.autor = autor;
     }
-    
-    
-    
+
     /*
     
      */
     //implemento el String
     @Override
     public String toString() {
-        return "Cancion{" + "titulo=" + titulo + ", autor=" + autor + '}';
+        return "La canción elegida es+ "titulo=" y con autor ", autor=" + autor + '}';
     }
 }

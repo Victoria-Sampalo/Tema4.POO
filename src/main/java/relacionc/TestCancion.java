@@ -22,7 +22,7 @@ public class TestCancion {
         //PRUEBO SET Y GET
         System.out.println("La canción es " + song1.getTitulo()
                 + " y su autor " + song1.getAutor());
-
+        //ME FALTA EL SET Y LO PRUEBO
         //PRUEBO EL MÉTODO STRING
         System.out.println("La canción es " + song1.toString());
         
