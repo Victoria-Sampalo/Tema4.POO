@@ -64,7 +64,7 @@ public class Cafetera {
 
     public Cafetera(double capacidadMaxima, double cantidadActual) {
         //defino aquí los atributos, como los defino aqui puedo ponerle this.
-        this.capacidadMaxima = capacidadMaxima;
+        capacidadMaxima = capacidadMaxima;
         this.cantidadActual = Math.abs(cantidadActual);
         //igual que el anterior
         //no le pongo el this porque hago referencia al parámetro, luego se hicieron cambios
@@ -98,16 +98,43 @@ public class Cafetera {
     public void servirTaza(double cantidadServir) {
         //sin el this porque no es ningun atributo, es un parámetro.
         double cantidadPositiva = Math.abs(cantidadServir);
-        
+
         //o ponerlo aqui. ANTES estaba en un if else, y el primer if era mirar el video el valor.
         this.cantidadActual -= cantidadPositiva;
         //tengo 100 y la taza llevo 400, -300 me quedo
         //si tengo meno cantidad en la cafetera que lo que voy a servir, sirvo lo que tengo.
-        if (this.cantidadActual <0) { //si la cantidad positiva es menor que la cantidad actual, lo igualo a 0. 
+        if (this.cantidadActual < 0) { //si la cantidad positiva es menor que la cantidad actual, lo igualo a 0. 
             this.cantidadActual = 0;
 
         }
 
+    }
+
+    //MÉTODO SIN PARÁMETROS PARA VARIAR EL CONTENIDO DE LA CAFETERA
+    public void vaciarCafetera() {
+        this.cantidadActual = 0;
+    }
+
+    //MÉTODO DE AGREGAR CAFÉ
+    //restricción, si llega a 1000, es 1000
+    public void agregarCafe(double cantidadAgregar) {
+        double cantidadPositiva = Math.abs(cantidadAgregar);
+        this.cantidadActual += cantidadPositiva;
+        //si llega a rebosar, se queda en mil
+
+        if (cantidadActual > 1000) {
+            this.cantidadActual = this.capacidadMaxima;
+
+        }
+
+    }
+
+    public double getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public double getCantidadActual() {
+        return cantidadActual;
     }
 
     //override: significa que es un metodo heredado que estamos sobreescribiendo.

@@ -50,8 +50,10 @@ public class Cancion {
     
      */
     //implemento el String
+
     @Override
     public String toString() {
-        return "La canción elegida es+ "titulo=" y con autor ", autor=" + autor + '}';
+        return "Cancion{" + "titulo=" + titulo + ", autor=" + autor + '}';
     }
+   
 }
