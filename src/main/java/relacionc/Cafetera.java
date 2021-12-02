@@ -109,7 +109,7 @@ public class Cafetera {
         }
 
     }
-
+   
     //MÉTODO SIN PARÁMETROS PARA VARIAR EL CONTENIDO DE LA CAFETERA
     public void vaciarCafetera() {
         this.cantidadActual = 0;
