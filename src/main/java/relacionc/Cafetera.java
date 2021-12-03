@@ -5,7 +5,9 @@ Constructor predeterminado, sin parámetros: establece la capacidad máxima en 1
 
 Constructor, que recibe sólo la capacidad máxima de la cafetera; inicializa la cantidad actual de café igual a la capacidad máxima (cafetera llena).
 
-Constructor, que recibe la capacidad máxima y la cantidad actual. Si la cantidad actual que se pasa es mayor que la capacidad máxima de la cafetera, se ajustará la cantidad actual a la capacidad máxima.
+Constructor, que recibe la capacidad máxima y la cantidad actual. 
+Si la cantidad actual que se pasa es mayor que la capacidad máxima de la cafetera, 
+se ajustará la cantidad actual a la capacidad máxima.
 
 llenarCafetera(): hace que la cantidad actual sea igual a la capacidad.
 
@@ -62,6 +64,11 @@ public class Cafetera {
         this.cantidadActual = this.capacidadMaxima;
     }
 
+    /*
+    *Constructor, que recibe la capacidad máxima y la cantidad actual. 
+    *Si la cantidad actual que se pasa es mayor que la capacidad máxima de la cafetera, 
+    *se ajustará la cantidad actual a la capacidad máxima.
+     */
     public Cafetera(double capacidadMaxima, double cantidadActual) {
         //defino aquí los atributos, como los defino aqui puedo ponerle this.
         capacidadMaxima = capacidadMaxima;
@@ -109,7 +116,7 @@ public class Cafetera {
         }
 
     }
-   
+
     //MÉTODO SIN PARÁMETROS PARA VARIAR EL CONTENIDO DE LA CAFETERA
     public void vaciarCafetera() {
         this.cantidadActual = 0;

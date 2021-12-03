@@ -59,7 +59,7 @@ import org.apache.commons.lang3.RandomStringUtils;
  *
  * @author victoria
  */
-public class cuentaBancaria {
+public class CuentaBancaria {
 
     /*
     Constructor por defecto, con los valores que tú consideres oportunos. 
@@ -67,6 +67,7 @@ public class cuentaBancaria {
     RandomStringUtils de la librería Apache Commons. 
      */
     //DEFINO LOS ATRIBUTOS CON LOS QUE VOY A TRABAJAR
+    //atributos encapsulados
     private String nif;
     private String nombreCliente;
     private String numCuenta;
@@ -74,13 +75,13 @@ public class cuentaBancaria {
     private double interesAnual; //(entre 0.1% y 3%)
 
     //CONSTRUCTOR POR DEFECTO SIN PARÁMETROS
-    public cuentaBancaria() {
+    public CuentaBancaria() {
         this.nif = "690559-H";
         this.nombreCliente = "Victoria Sampa";
 
         this.saldoActual = 100_000;
         this.interesAnual = 2;
-        this.numCuenta = RandomStringUtils.randomNumeric(20);
+        this.numCuenta = RandomStringUtils.randomNumeric(20).toUpperCase();
 
     }
 
@@ -91,18 +92,17 @@ public class cuentaBancaria {
     no se tendrá en cuenta que se puedan generar números de cuenta repetidos, 
     algo que evidentemente en la vida real no debería suceder.
      */
-    //MÉTODO CONSTRUCTOR 
-    public cuentaBancaria(String nif, String nombreCliente, double saldoActual, double interesAnual) {
-
+    //MÉTODO CONSTRUCTOR PARAMETRIZADO. 
+    public CuentaBancaria(String nif, String nombreCliente, double saldoActual, double interesAnual) {
+        this.numCuenta = RandomStringUtils.randomNumeric(20).toUpperCase();
         this.nif = nif;
         this.nombreCliente = nombreCliente;
         this.saldoActual = saldoActual;
-        //restricción de interés del 1-3%
+        //restricción de interés del 0.1-3%
+        if (interesAnual < 0.1 || interesAnual > 3) {
+            throw new IllegalArgumentException("Tiene que introducir un dato entre 0.1 y 3");
+        }
         this.interesAnual = interesAnual;
-        
-        
-
-        this.numCuenta = RandomStringUtils.randomNumeric(20);
 
     }
 
@@ -111,7 +111,6 @@ public class cuentaBancaria {
     número de cuenta no se puede cambiar una vez la cuenta está creada.
      */
     //MÉTODO GET Y SET DE CADA ATRIBUTO. SALVO NUMCUENTA SIN SET
-
     public String getNif() {
         return nif;
     }
@@ -132,8 +131,6 @@ public class cuentaBancaria {
         return numCuenta;
     }
 
-    
-
     public double getSaldoActual() {
         return saldoActual;
     }
@@ -144,22 +141,54 @@ public class cuentaBancaria {
 
     public double getInteresAnual() {
         //restricción interés 
-        
+
         return interesAnual;
     }
 
     public void setInteresAnual(double interesAnual) {
+        //lanzar error si interes 
+        if (interesAnual < 0.1 || interesAnual > 3) {
+            throw new IllegalArgumentException("Tiene que introducir un dato entre 0.1 y 3");
+        }
         this.interesAnual = interesAnual;
     }
-    
+
     /*
     ingresarIntereses(): aumenta el saldo de la cuenta, 
     aplicando el interés anual [saldo = saldo + (interés * saldo)].
-    */
-    public void ingresarInteres(){
-    
-    
-    
+     */
+    public void ingresarInteres() {
+        this.saldoActual += (interesAnual * saldoActual);
     }
-    
+
+    /*
+    ingresarDinero(double cantidad): permite ingresar una cantidad en la cuenta.
+     */
+    public void ingresarDinero(double cantidad) {
+        //restricción la cantidad debe ser siempre positiva.
+        double cantidadIngresada = Math.abs(cantidad);
+        saldoActual = cantidadIngresada + saldoActual;
+
+    }
+
+    /*
+    retirarEfectivo(double cantidad): permite sacar una cantidad de la cuenta 
+    (si hay saldo). Si no hay saldo suficiente no se realiza la operación.
+     */
+    public void retirarEfectivo(double cantidad) {
+        //restricción si cantidadretirada > cantidadActual lanzar error.
+
+        if (saldoActual - cantidad < 0) {
+            throw new IllegalArgumentException("No tines saldo suficiente para retirar esta cantidad.");
+        }
+        Math.abs(saldoActual = saldoActual - cantidad);
+
+    }
+
+    //MÉTODO TO STRING.
+    @Override
+    public String toString() {
+        return "Los datos actuales de mi cuenta son \n{" + "nif=" + nif + ", nombreCliente=" + nombreCliente + ", numCuenta=" + numCuenta + ", saldoActual=" + saldoActual + ", interesAnual=" + interesAnual + '}';
+    }
+
 }
