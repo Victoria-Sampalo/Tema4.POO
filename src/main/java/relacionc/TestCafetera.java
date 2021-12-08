@@ -42,6 +42,7 @@ public class TestCafetera {
         c4.agregarCafe(600);
         System.out.println(c4);
         System.out.println("La cantidad actual es" + c4.getCantidadActual());
+        
         c4.vaciarCafetera();
         System.out.println(c4);
     }
