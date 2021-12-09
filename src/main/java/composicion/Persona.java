@@ -13,20 +13,21 @@ public class Persona {
     private String nombre;
     private int edad;
 
-    private Direccion dirección;
+    private Direccion direccion;
     //Contructor parametrizado
-    public Persona(String nombre, int edad) {
-        super();
+    public Persona(String nombre, int edad, Direccion direccion) {
+        // tiene que ver con el concepto de herencia super();
         this.nombre = nombre;
         this.edad = edad;
+        this.direccion =direccion;
     }
 
-    public Direccion getDirección() {
-        return dirección;
+    public Direccion getDireccion() {
+        return direccion;
     }
 
-    public void setDirección(Direccion dirección) {
-        this.dirección = dirección;
+    public void setDireccion(Direccion dirección) {
+        this.direccion = dirección;
     }
 
     public String getNombre() {
@@ -44,5 +45,11 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", edad=" + edad + ", dirección=" + direccion + '}';
+    }
+    
 
 }

@@ -31,8 +31,14 @@ public class Direccion {
     }
     //Contructor parametrizado.
     public Direccion(String calle, int numero) {
-        super();
+       // super();
         this.calle = calle;
         this.numero = numero;
     }
+
+    @Override
+    public String toString() {
+        return "Direccion{" + "calle=" + calle + ", numero=" + numero + '}';
+    }
+    
 }

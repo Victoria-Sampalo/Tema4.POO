@@ -59,7 +59,7 @@ import org.apache.commons.lang3.RandomStringUtils;
  *
  * @author victoria
  */
-public class CuentaBancaria {
+public class cuentaBancaria {
 
     /*
     Constructor por defecto, con los valores que tú consideres oportunos. 
@@ -75,7 +75,7 @@ public class CuentaBancaria {
     private double interesAnual; //(entre 0.1% y 3%)
 
     //CONSTRUCTOR POR DEFECTO SIN PARÁMETROS
-    public CuentaBancaria() {
+    public cuentaBancaria() {
         this.nif = "690559-H";
         this.nombreCliente = "Victoria Sampa";
 
@@ -93,7 +93,7 @@ public class CuentaBancaria {
     algo que evidentemente en la vida real no debería suceder.
      */
     //MÉTODO CONSTRUCTOR PARAMETRIZADO. 
-    public CuentaBancaria(String nif, String nombreCliente, double saldoActual, double interesAnual) {
+    public cuentaBancaria(String nif, String nombreCliente, double saldoActual, double interesAnual) {
         this.numCuenta = RandomStringUtils.randomNumeric(20).toUpperCase();
         this.nif = nif;
         this.nombreCliente = nombreCliente;

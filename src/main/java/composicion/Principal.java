@@ -20,23 +20,27 @@ public class Principal {
         Direccion d2= new Direccion ("calle B", 7);
         
         //creo objeto de clase persona
-        Persona p1 = new Persona ("pepe", 24);
-        
-       //imprimo con setdireccion
-       p1.setDirección(d1);
+        Persona p1 = new Persona ("pepe", 24, d2);
+        System.out.println(p1.toString());
+        p1.setDireccion(d1);
+        System.out.println(p1.getDireccion().getNumero());
+        p1.getDireccion().setCalle("Calle tortolitos");
+        System.out.println(p1.toString());
+     /*  //imprimo con setdireccion
+       p1.setDireccion(d1);
        
        //creo objeto de clase empresa y lo modifico con el set. 
        Empresa empresa1=new Empresa();
        
        empresa1.setCif("1A");
-       empresa1.setDirección(d2);
-        
+      //) empresa1.setDireccion(d2);
+      */  
        //imprimo ambos persona y empresa con d1 y d2
        
-        System.out.println(p1.getDirección().getCalle());
-        System.out.println(empresa1.getDirección().getCalle());
-        System.out.println("Datos p1"+ p1);
-        System.out.println(p1.getEdad()+p1.getDirección());
+        //System.out.println(p1.getDireccion().getCalle());
+        //System.out.println(empresa1.getDireccion().getCalle());
+        //System.out.println("Datos p1"+ p1);
+        //System.out.println(p1.getDireccion()+p1.getEdad());
         
     }
     
