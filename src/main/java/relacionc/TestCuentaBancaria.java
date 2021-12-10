@@ -22,7 +22,7 @@ public class TestCuentaBancaria {
        // c1.setInteresAnual(2.9);
        // System.out.println("Modifico el valor del interés a -1: \n" + c1);
        
-       CuentaBancaria c2=new CuentaBancaria("6490H", "Victoria Sampalo", 2_000, 2);
+       cuentaBancaria c2=new cuentaBancaria("6490H", "Victoria Sampalo", 2_000, 2);
         System.out.println("Saldo actual es: " + c2.getSaldoActual());
         
         //ingreso dinero

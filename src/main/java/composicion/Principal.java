@@ -22,10 +22,39 @@ public class Principal {
         //creo objeto de clase persona
         Persona p1 = new Persona ("pepe", 24, d2);
         System.out.println(p1.toString());
-        p1.setDireccion(d1);
+        p1.setDireccion(d2);
         System.out.println(p1.getDireccion().getNumero());
         p1.getDireccion().setCalle("Calle tortolitos");
         System.out.println(p1.toString());
+        
+        
+        //EMPRESA
+        Empresa empresa1 = new Empresa ("1A", d1);
+        
+        Empresa empresa2 = new Empresa (); 
+        System.out.println(empresa1);
+        System.out.println(empresa2);
+        
+        empresa2.setDireccion(d2);
+        empresa2.setCif("a25");
+        System.out.println(empresa2);
+        
+        empresa2.getDireccion().setNumero(12);
+        System.out.println(p1.getDireccion());
+        
+        
+        //segunda forma
+        Direccion d3 = new Direccion ("Calle Alboran", 8);
+        empresa1.setDireccion(d3);
+        System.out.println(empresa1);
+        d3.setNumero(12);
+        System.out.println(empresa1);
+        //no hay objeto que apunta a la nueva dirección creada. Forma 1
+        empresa1.setDireccion(new Direccion("Calle Flores", 13));
+        System.out.println(empresa1);
+        empresa1.getDireccion().setNumero(14);
+        System.out.println(empresa1);
+        
      /*  //imprimo con setdireccion
        p1.setDireccion(d1);
        

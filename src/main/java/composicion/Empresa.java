@@ -12,34 +12,27 @@ package composicion;
 public class Empresa {
     private String cif;
 
-  private Direccion dirección;
+  private Direccion direccion;
 
-    public Empresa(String cif, Direccion dirección) {
+    public Empresa(String cif, Direccion direccion) {
         this.cif=cif;
-        this.dirección = dirección;
+        this.direccion = direccion;
     }
-  /*
-    public Persona(String nombre, int edad) {
-        super();
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-    */
   
-    //constructor vacio
+  
+    //constructor por defecto, vacío. atributos apuntando a null
     public Empresa() {
-        this.cif=cif;
-        this.dirección = dirección;
+        
     }
 
     
   
-  public Direccion getDirección() {
-    return dirección;
+  public Direccion getDireccion() {
+    return direccion;
   }
 
-  public void setDirección(Direccion dirección) {
-    this.dirección = dirección;
+  public void setDireccion(Direccion direccion) {
+    this.direccion = direccion;
   }
 
   public String getCif() {
@@ -49,5 +42,10 @@ public class Empresa {
   public void setCif(String cif) {
     this.cif = cif;
   }
+
+    @Override
+    public String toString() {
+        return "Empresa{" + "cif=" + cif + ", direccion=" + direccion + '}';
+    }
   
 }
