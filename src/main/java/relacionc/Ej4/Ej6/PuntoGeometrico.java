@@ -5,55 +5,49 @@ Incluye los siguientes métodos: constructores (por defecto y parametrizado)
 y métodos get y set. En una clase de prueba, con el método main(), 
 crea un par de objetos y prueba los métodos get y set.
  */
-package relacionc.Ej4.Ej5;
+package relacionc.Ej4.Ej6;
 
 /**
  *
  * @author victoria
  */
 public class PuntoGeometrico {
+
     //DEFINO ATRIBUTOS
-    private double x;
-    private double y;
-    
+    private int x;
+    private int y;
+
     //creo constructor sin parámetros vacio
-    public PuntoGeometrico (){
-     this.x=0;
-     this.y= 1; 
-    }
-    
-    //constructor parametrizado
-    public PuntoGeometrico (double x, double y){
-     this.x= x;
-     this.y =y;
+    public PuntoGeometrico() {
+        this.x = 0;
+        this.y = 0;
     }
 
-    public double getX() {
+    //constructor parametrizado
+    public PuntoGeometrico(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 
     @Override
     public String toString() {
-        return "PuntoGeometrico{" + "x=" + x + ", y=" + y + '}';
+        return "PuntoGeometrico{" + "x=" + x + ",y=" + y + '}';
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
