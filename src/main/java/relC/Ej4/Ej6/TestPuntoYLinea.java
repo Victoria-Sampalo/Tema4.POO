@@ -27,7 +27,10 @@ public class TestPuntoYLinea {
         
        
         //creo objeto de linea
+        
         Linea linea1 = new Linea(puntoA, puntoB);
+        Linea linea2= new Linea();
+        
         System.out.println(linea1);
         
         //pruebo los métodos creados
@@ -35,6 +38,14 @@ public class TestPuntoYLinea {
         linea1.mueveDerecha(2);
         System.out.println(linea1);
         
+        //en clase.
+        //COMPOSICIÓN BÁSICA
+        //cambiar la coordenada X del punto A de la segunda linea
+        linea2.getPuntoA().setX(4);
+        // así entras a la segunda linea, nos metemos en el objeto y cogemos una variable que tiene dentro
+        //get.A es un objeto de tipo geométrico. 
+        
+        //crear rectángulo a partir de cuatro lineas
         
       
         
