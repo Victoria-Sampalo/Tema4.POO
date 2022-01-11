@@ -17,6 +17,7 @@ public class Nif {
     //DEFINO ATRIBUTOS CON LOS QUE VOY A TRABAJAR
     public String numeroDni;
     private char letraDni;
+    static int numContador= 0;
 
     public Nif(String numeroDni) {
         this.numeroDni = numeroDni;
@@ -142,12 +143,20 @@ public class Nif {
         return "Nif{" + numeroDni + "-" + letraDni + '}';
     }
     
+    //método contador
+    public static void contador(int numContador) {
+       numContador++;
+       
+    
+    }
     
     public static void main(String[] args) {
         //creo el objeto
         Nif nif1 = new Nif("79055940");
         System.out.println(nif1.toString());
     }
+    
+    
     
     
            
