@@ -15,13 +15,14 @@ package relacionc;
  */
 public class Nif {
     //DEFINO ATRIBUTOS CON LOS QUE VOY A TRABAJAR
-    public String numeroDni;
+    private String numeroDni;
     private char letraDni;
-    static int numContador= 0;
+    private static int contadorDeInstancias;
 
     public Nif(String numeroDni) {
         this.numeroDni = numeroDni;
         this.letraDni= CrearLetraDni();
+        contadorDeInstancias++;
         
     }
     
@@ -114,6 +115,11 @@ public class Nif {
             case 22:
                 letra = 'E';
                 break;
+            default:
+                System.out.println();
+                break;
+            
+            
         
         }
         }
