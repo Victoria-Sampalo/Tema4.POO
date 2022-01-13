@@ -37,7 +37,7 @@ public class Nif {
          int numeroInt = Integer.parseInt(numeroDni);
          //la letra es la división de
          int letraDni = numeroInt % 23;
-         
+         contadorDeInstancias++;
         switch (letraDni){
             case 0:
                 letra = 'T';
@@ -125,6 +125,7 @@ public class Nif {
         }
         else {
          this.numeroDni = "0";
+            System.out.println("El número debe de tener 8 dígitos.");
         }
         
         
