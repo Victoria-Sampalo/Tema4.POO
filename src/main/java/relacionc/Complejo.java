@@ -145,7 +145,7 @@ public class Complejo {
      return resultadoReal == 0 && resultadoImaginario ==0;
     }
     
-<<<<<<< Updated upstream
+
     //constructor copia
     public Complejo(Complejo copia) {
         
@@ -155,10 +155,10 @@ public class Complejo {
         contadorDeInstancias++;
         
     }
-=======
+
     //método de suma de complejos
     
->>>>>>> Stashed changes
+
     
     
 }

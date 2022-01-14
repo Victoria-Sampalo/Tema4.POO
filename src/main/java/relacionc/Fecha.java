@@ -20,9 +20,6 @@ public class Fecha {
     private int mes;
     private int anio;
     
-    /**
-     *
-     */
     
 
     //Constructor predeterminado con el 1-1-2022, como fecha por defecto.
@@ -75,7 +72,9 @@ public class Fecha {
     }
 
     public void setDia(int dia) {
+        if(comprobarFecha(dia, mes, anio)){
         this.dia = dia;
+        }
     }
 
     public int getMes() {
@@ -83,7 +82,10 @@ public class Fecha {
     }
 
     public void setMes(int mes) {
+        if(comprobarFecha(dia, mes, anio)){
         this.mes = mes;
+        }
+        
     }
 
     public int getAnio() {
@@ -91,7 +93,10 @@ public class Fecha {
     }
 
     public void setAnio(int anio) {
+        if(comprobarFecha(dia, mes, anio)){
         this.anio = anio;
+        }
+        
     }
     
     
@@ -100,13 +105,11 @@ public class Fecha {
     */
     public boolean bisiesto(){
     boolean bisiesto =true;
-    if (
-    anio.isLeapYear()){
-    
+    if (anio.isLeapYear()){
+    } else {
         System.out.println("Es bisiesto");
+        }
      return bisiesto;
-    }
-   
     }
     
     /*
