@@ -19,7 +19,9 @@ public class Fecha {
     private int dia;
     private int mes;
     private int anio;
-    
+    private LocalDate fecha;
+    /* CREACIÓN DE FECHAS Y OBTENCIÓN DE CAMPOS*/
+    LocalDate hoy = LocalDate.now();
     
 
     //Constructor predeterminado con el 1-1-2022, como fecha por defecto.
@@ -104,27 +106,12 @@ public class Fecha {
     bisiesto(): indicará si el año almacenado en el atributo es bisiesto o no.
     */
     public boolean bisiesto(){
-    boolean bisiesto =true;
-    if (anio.isLeapYear()){
-    } else {
-        System.out.println("Es bisiesto");
+    if (hoy.isLeapYear()){
+            System.out.println("Este año es bisiesto");
         }
-     return bisiesto;
+        return false;
+    
     }
     
-    /*
-    
-    public boolean bisiesto() {
-        boolean isbisiesto = false;
-        fechaCompuesta = LocalDate.of(anio, mes, dia);
-
-        if (fechaCompuesta.isLeapYear()) {
-            isbisiesto = true;
-        }
-        return isbisiesto;
-    }
-    
-    
-    */
     
 }
