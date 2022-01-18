@@ -16,12 +16,12 @@ public class TestFecha {
      */
     public static void main(String[] args) {
         Fecha hoy = new Fecha(2022, 1, 15);
-        
-        System.out.println("Fecha 1 es "+ hoy);
-        Fecha dia1 = new Fecha (2022,1,15);
+
+        System.out.println("Fecha 1 es " + hoy);
+        Fecha dia1 = new Fecha(2022, 1, 15);
         System.out.println("El mes tiene: " + hoy.diasMes() + " días");
         System.out.println(dia1);
-        
+
     }
-    
+
 }
