@@ -87,7 +87,7 @@ public class LibroElectronico {
     }
 
     public void setTamanio(double tamanio) {
-      if (this.tamanio < 0 || this.paginasTotales >10){
+      if (this.tamanio < 0 || this.tamanio >10){
          this.tamanio= 0; 
         } else {this.tamanio = tamanio;}
         
